@@ -1,7 +1,7 @@
 <template>
   <section>
     <base-card>
-      <h2>Task Manager</h2>
+      <h2>Task Manager ({{ getMode() }} )</h2>
       <form @submit.prevent="addTasks">
         <div class="form-control">
           <label for="name">Your task to do</label>
@@ -60,6 +60,10 @@ export default {
   },
   emits: ['task-added'],
   methods: {
+    getMode() {
+      return process.env.VUE_APP_MODE;
+    },
+
     addTasks() {
       if (this.taskName === '' || !this.chosenPriority) {
         this.invalidInput = true;
