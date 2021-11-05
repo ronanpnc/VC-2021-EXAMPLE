@@ -1,0 +1,23 @@
+/front/.DS_Store
+
+# NPM package repo
+/front/node_modules
+/front/package-lock.json
+
+# Generated distribution
+/front/dist
+
+# Local env files
+/front/.env.local
+/front/.env.*.local
+
+# Log files
+/front/npm-debug.log*
+ 
+# Editor configuration
+/front/.vscode
+
+
+# BACK : NPM package repo
+/back/node_modules
+/back/package-lock.json
