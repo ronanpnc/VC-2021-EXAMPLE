@@ -1,18 +1,19 @@
 <template>
   <li>
     <p>
-      <span class="highlight">{{ name }}</span> rated the learning experience
-      <span :class="ratingClass">{{ rating }}</span>.
+      <span class="highlight">{{ taskName }}</span> task with priority
+      <span :class="ratingClass">{{ taskPriority }}</span
+      >.
     </p>
   </li>
 </template>
 
 <script>
 export default {
-  props: ['name', 'rating'],
+  props: ['taskName', 'taskPriority'],
   computed: {
     ratingClass() {
-      return 'highlight rating--' + this.rating;
+      return 'highlight priority--' + this.taskPriority;
     },
   },
 };
@@ -35,15 +36,15 @@ p {
   font-weight: bold;
 }
 
-.rating--poor {
+.priority--hight {
   color: #b80056;
 }
 
-.rating--average {
+.priority--middle {
   color: #330075;
 }
 
-.rating--great {
+.priority--low {
   color: #008327;
 }
 </style>

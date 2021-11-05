@@ -3,10 +3,10 @@
     <nav>
       <ul>
         <li>
-          <router-link to="/survey">Survey</router-link>
+          <router-link to="/tasks">Task Manager</router-link>
         </li>
         <li>
-          <router-link to="/infos">My infos</router-link>
+          <router-link to="/events">Event Manager</router-link>
         </li>
       </ul>
     </nav>

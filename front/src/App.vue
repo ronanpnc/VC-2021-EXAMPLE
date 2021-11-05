@@ -1,6 +1,6 @@
 <template>
-  <the-navigation></the-navigation>
   <main>
+    <the-navigation></the-navigation>
     <router-view></router-view>
   </main>
 </template>
