@@ -71,8 +71,8 @@ export default {
         this.invalidInput = false;
 
         this.$emit('task-added', {
-          taskName: this.taskName,
-          taskPriority: this.chosenPriority,
+          name: this.taskName,
+          priority: this.chosenPriority,
         });
 
         this.taskName = '';

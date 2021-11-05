@@ -1,18 +1,15 @@
 <template>
   <section>
     <task-form @task-added="addTask"></task-form>
-
-    <base-card>
-      <h2>Current tasks</h2>
-      <ul>
-        <task-card
-          v-for="task in allTasks"
-          :key="task.id"
-          :taskName="task.taskName"
-          :taskPriority="task.taskPriority"
-        ></task-card>
-      </ul>
-    </base-card>
+    <ul>
+      <task-card
+        v-for="task in allTasks"
+        :key="task.id"
+        :id="task.id"
+        :name="task.name"
+        :priority="task.priority"
+      ></task-card>
+    </ul>
   </section>
 </template>
 
@@ -31,14 +28,23 @@ export default {
     };
   },
   methods: {
+    removeTask(taskId) {
+      const resIndex = this.allTasks.findIndex((res) => res.id === taskId);
+      this.allTasks.splice(resIndex, 1);
+    },
     addTask(task) {
       const newTask = {
         id: new Date().toISOString(),
-        taskName: task.taskName,
-        taskPriority: task.taskPriority,
+        name: task.name,
+        priority: task.priority,
       };
       this.allTasks.push(newTask);
     },
+  },
+  provide() {
+    return {
+      removeTask: this.removeTask,
+    };
   },
 };
 </script>
