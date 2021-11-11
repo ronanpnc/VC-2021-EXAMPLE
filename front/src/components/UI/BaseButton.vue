@@ -7,8 +7,8 @@
 <style scoped>
 button {
   font: inherit;
-  border: 1px solid #360032;
-  background-color: #360032;
+  border: 1px solid var(--main-color);
+  background-color: var(--main-color);
   color: white;
   padding: 0.5rem 2rem;
   cursor: pointer;
@@ -16,7 +16,7 @@ button {
 
 button:hover,
 button:active {
-  background-color: #5c0556;
-  border-color: #5c0556;
+  background-color: var(--main-color-light);
+  border-color: var(--main-color-light);
 }
 </style>

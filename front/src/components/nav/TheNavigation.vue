@@ -18,7 +18,7 @@
 header {
   width: 100%;
   height: 5rem;
-  background-color: #11005c;
+  background-color: var(--main-color);
 }
 
 nav {
@@ -48,12 +48,5 @@ a {
   color: white;
   padding: 0.5rem 1.5rem;
   display: inline-block;
-}
-
-a:hover,
-a.router-link-active {
-  color: #f1a80a;
-  border-color: #f1a80a;
-  background-color: #1a037e;
 }
 </style>

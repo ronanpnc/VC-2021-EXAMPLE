@@ -28,12 +28,12 @@ export default {
     TaskDialog,
     TaskCard,
   },
-  data() {
-    return {
-      isDialogVisible: false,
-      allTasks: [],
-    };
-  },
+    data() {
+      return {
+        isDialogVisible: false,
+        allTasks: [],
+      };
+    },
   methods: {
     getMode() {
       return process.env.VUE_APP_MODE;
@@ -69,18 +69,6 @@ export default {
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: sans-serif;
-}
-
-body {
-  margin: 0;
-}
-
 ul {
   list-style: none;
   margin: 0;
