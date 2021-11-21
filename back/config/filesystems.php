@@ -68,6 +68,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('task-image') => storage_path('app/task-image'),
     ],
 
 ];
