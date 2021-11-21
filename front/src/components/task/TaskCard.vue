@@ -2,6 +2,7 @@
   <li>
     <base-card>
       <header>
+        <img :src="getImageUrl(task.task_img)"   width="500" height="600">
         <h3>{{ task.title }} -  Author : {{ task.user_id }} </h3>
         <base-button mode="flat" @click="removeTask(task.id)">Delete</base-button>
       </header>
@@ -14,6 +15,8 @@
 </template>
 
 <script>
+const BASE_REST_API_URL = process.env.VUE_APP_API_URL;
+
 export default {
   props: ['task'],
   inject: ['removeTask'],
@@ -22,6 +25,13 @@ export default {
       return 'highlight priority--' + this.task.priority;
     },
   },
+  methods: {
+    getImageUrl(imageName){
+      console.log(BASE_REST_API_URL + "/" + imageName)
+      return BASE_REST_API_URL + "/" + imageName;
+
+    }
+  }
 };
 </script>
 
