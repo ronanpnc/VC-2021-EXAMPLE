@@ -7,6 +7,9 @@
   >
     <template #default>
       <div class="form-control">
+        <label>User id:</label>
+        <input type="text" v-model="user_id" />
+
         <label>Title:</label>
         <input type="text" v-model="title" />
 
@@ -25,6 +28,7 @@
 export default {
   data() {
     return {
+      user_id: '',
       title: '',
       description: '',
       invalidInput: false,
@@ -33,18 +37,24 @@ export default {
   emits: ['addTask', 'hideDialog'],
   methods: {
     addTask() {
-      if (this.title === '' || !this.description) {
+      if (
+        this.title === '' ||
+        !this.description === '' ||
+        !this.user_id === ''
+      ) {
         this.invalidInput = true;
       } else {
         this.invalidInput = false;
 
         this.$emit('addTask', {
+          user_id: this.user_id,
           title: this.title,
           description: this.description,
         });
 
         this.title = '';
         this.description = '';
+        this.user_id = '';
 
         this.hideDialog();
       }
@@ -62,7 +72,6 @@ export default {
 }
 
 label {
-  color: red;
   margin-top: 15px;
 }
 

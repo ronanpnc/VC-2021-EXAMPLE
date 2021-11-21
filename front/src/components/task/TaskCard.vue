@@ -2,8 +2,8 @@
   <li>
     <base-card>
       <header>
-        <h3>{{ task.title }}</h3>
-        <base-button mode="flat" @click="removeTask(id)">Delete</base-button>
+        <h3>{{ task.title }} -  Author : {{ task.user_id }} </h3>
+        <base-button mode="flat" @click="removeTask(task.id)">Delete</base-button>
       </header>
       <p>
         {{ task.description }}

@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return Task::with('users')->get();
+        return Task::with('users')->latest()->get();
     }
 
     /**
@@ -71,6 +71,6 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Task::destroy($id);
     }
 }
