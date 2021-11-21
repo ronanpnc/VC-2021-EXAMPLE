@@ -13,7 +13,10 @@
 - Launch composer install
 - Launch npm install
 - Launch php artisan migrate
+
 - Launch php artisan key:generate
+- Launch php artisan storage:link ( to allow the image folder to be public)
+
 - Launch php artisan serve
 
 ## FRONT
