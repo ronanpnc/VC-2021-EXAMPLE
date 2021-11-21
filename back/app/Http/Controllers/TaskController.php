@@ -30,6 +30,7 @@ class TaskController extends Controller
         $task->title = $request->title;
         $task->description = $request->description;
         $task->user_id = $request->user_id;
+        $task->task_img = $request->file('image')->store('task-image');
 
         $task->save();
 
@@ -48,7 +49,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        return Task::findOrFail($id);
     }
 
     /**
@@ -60,7 +61,18 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Task::findOrFail($id);
+        $task->title = $request->title;
+        $task->description = $request->description;
+        $task->user_id = $request->user_id;
+
+        $task->save();
+
+        return response()->json([
+            'task' => $task,
+            'message' => 'Task updated successfully',
+            'status' => 200
+        ], 200);
     }
 
     /**
@@ -72,5 +84,16 @@ class TaskController extends Controller
     public function destroy($id)
     {
         return Task::destroy($id);
+    }
+
+    /**
+     * search task
+     *
+     * @param  string $title
+     * @return \Illuminate\Http\Response
+     */
+    public function search($title)
+    {
+        return Task::where('title', 'like', '%'.$title.'%');
     }
 }
