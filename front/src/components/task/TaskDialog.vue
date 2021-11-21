@@ -7,40 +7,13 @@
   >
     <template #default>
       <div class="form-control">
-        <label for="name">Your task to do</label>
-        <input type="text" id="name" name="name" v-model.trim="taskName" />
+        <label>Title:</label>
+        <input type="text" v-model="title" />
+
+        <label>Description:</label>
+        <textarea rows="4" v-model="description" />
       </div>
-      <h3>Priority ...</h3>
-      <div class="form-control">
-        <input
-          type="radio"
-          id="priority-hight"
-          value="hight"
-          name="priority"
-          v-model="chosenPriority"
-        />
-        <label for="priority-hight">hight</label>
-      </div>
-      <div class="form-control">
-        <input
-          type="radio"
-          id="priority-middle"
-          value="middle"
-          name="priority"
-          v-model="chosenPriority"
-        />
-        <label for="priority-middle">middle</label>
-      </div>
-      <div class="form-control">
-        <input
-          type="radio"
-          id="priority-low"
-          value="low"
-          name="priority"
-          v-model="chosenPriority"
-        />
-        <label for="priority-low">low</label>
-      </div>
+
       <p class="error" v-if="invalidInput">
         One or more input fields are invalid. Please check your provided data.
       </p>
@@ -52,26 +25,26 @@
 export default {
   data() {
     return {
-      taskName: '',
-      chosenPriority: null,
+      title: '',
+      description: '',
       invalidInput: false,
     };
   },
   emits: ['addTask', 'hideDialog'],
   methods: {
     addTask() {
-      if (this.taskName === '' || !this.chosenPriority) {
+      if (this.title === '' || !this.description) {
         this.invalidInput = true;
       } else {
         this.invalidInput = false;
 
         this.$emit('addTask', {
-          name: this.taskName,
-          priority: this.chosenPriority,
+          title: this.title,
+          description: this.description,
         });
 
-        this.taskName = '';
-        this.chosenPriority = null;
+        this.title = '';
+        this.description = '';
 
         this.hideDialog();
       }
@@ -88,6 +61,12 @@ export default {
   margin: 0.5rem 0;
 }
 
+label {
+  color: red;
+  margin-top: 15px;
+}
+
+textarea,
 input[type='text'] {
   display: block;
   width: 20rem;

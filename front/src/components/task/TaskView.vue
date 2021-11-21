@@ -13,9 +13,7 @@
       <task-card
         v-for="task in allTasks"
         :key="task.id"
-        :id="task.id"
-        :name="task.name"
-        :priority="task.priority"
+        :task="task"
       ></task-card>
     </ul>
   </section>
@@ -33,7 +31,32 @@ export default {
   data() {
     return {
       isDialogVisible: false,
-      allTasks: [],
+      allTasks: [
+        {
+          id: 'id1',
+          title: 'task1',
+          priority: 'hight',
+          description: 'my task 1',
+          author: 'ronan',
+          image: 'test.png',
+        },
+        {
+          id: 'id2',
+          title: 'task2',
+          priority: 'middle',
+          description: 'my task 2',
+          author: 'ronan',
+          image: 'test.png',
+        },
+        {
+          id: 'id3',
+          title: 'task3',
+          priority: 'hight',
+          description: 'my task 3',
+          author: 'rady',
+          image: 'test.png',
+        },
+      ],
     };
   },
   methods: {
@@ -55,9 +78,12 @@ export default {
     },
     addTask(task) {
       const newTask = {
-        id: new Date().toISOString(),
-        name: task.name,
-        priority: task.priority,
+        title: task.title,
+        description: task.description,
+
+        id: new Date().toISOString(), // hard coded for now
+        priority: 'low', // hard coded for now
+        author: 'ronan', // hard coded for now
       };
       this.allTasks.push(newTask);
     },

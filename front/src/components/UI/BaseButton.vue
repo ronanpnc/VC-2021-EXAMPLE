@@ -1,9 +1,22 @@
 <template>
-  <button>
+  <button :class="mode">
     <slot></slot>
   </button>
 </template>
 
+
+
+<script>
+export default {
+  props: {
+    mode: {
+      type: String,
+      required: false,
+      default: null,
+    },
+  },
+};
+</script>
 <style scoped>
 button {
   font: inherit;
@@ -12,6 +25,12 @@ button {
   color: white;
   padding: 0.5rem 2rem;
   cursor: pointer;
+}
+
+.flat {
+  background-color: transparent;
+  color: var(--main-color);
+  border: none;
 }
 
 button:hover,

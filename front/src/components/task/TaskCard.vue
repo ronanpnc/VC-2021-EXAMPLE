@@ -2,12 +2,12 @@
   <li>
     <base-card>
       <header>
-        <h3>{{ name }}</h3>
+        <h3>{{ task.title }}</h3>
         <base-button mode="flat" @click="removeTask(id)">Delete</base-button>
       </header>
       <p>
-        <span class="highlight">{{ name }}</span> task with priority
-        <span :class="ratingClass">{{ priority }}</span>
+        {{ task.description }}
+        <span :class="ratingClass">{{ task.priority }}</span>
       </p>
     </base-card>
   </li>
@@ -15,11 +15,11 @@
 
 <script>
 export default {
-  props: ['name', 'priority', 'id'],
+  props: ['task'],
   inject: ['removeTask'],
   computed: {
     ratingClass() {
-      return 'highlight priority--' + this.priority;
+      return 'highlight priority--' + this.task.priority;
     },
   },
 };
