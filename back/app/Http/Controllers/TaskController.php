@@ -24,7 +24,7 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function createTask(Request $request)
     {
         $task = new Task();
         $task->title = $request->title;
@@ -58,7 +58,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateTask(Request $request, $id)
     {
         //
     }
@@ -69,7 +69,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function deleteTask($id)
     {
         return Task::destroy($id);
     }

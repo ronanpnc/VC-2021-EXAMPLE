@@ -11,8 +11,8 @@ Route::post('users', [UserController::class, 'createUser']);
 Route::get('tasks', [TaskController::class, 'index']);
 Route::get('tasks/{id}', [TaskController::class, 'show']);
 
-Route::post('tasks', [TaskController::class, 'store']);
-Route::put('tasks/{id}', [TaskController::class, 'update']);
-Route::delete('tasks/{id}', [TaskController::class, 'destroy']);
+Route::post('tasks', [TaskController::class, 'createTask']);
+Route::put('tasks/{id}', [TaskController::class, 'updateTask']);
+Route::delete('tasks/{id}', [TaskController::class, 'deleteTask']);
 
 Route::get('tasks/search/{title}', [TaskController::class, 'search']);
