@@ -1,7 +1,9 @@
 <template>
   <section>
     <h2>Task Manager ({{ getMode() }} )</h2>
-    <base-button @click="showDialog">Create</base-button>
+    <base-button class="right-main-button" @click="showDialog"
+      >Create !</base-button
+    >
     <task-dialog
       v-if="isDialogVisible"
       @addTask="addTask"
@@ -28,12 +30,12 @@ export default {
     TaskDialog,
     TaskCard,
   },
-    data() {
-      return {
-        isDialogVisible: false,
-        allTasks: [],
-      };
-    },
+  data() {
+    return {
+      isDialogVisible: false,
+      allTasks: [],
+    };
+  },
   methods: {
     getMode() {
       return process.env.VUE_APP_MODE;
@@ -73,5 +75,10 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.right-main-button {
+  float: right;
+  margin-right: 4rem;
 }
 </style>
