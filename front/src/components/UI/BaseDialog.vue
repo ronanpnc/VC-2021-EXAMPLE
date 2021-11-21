@@ -11,9 +11,7 @@
         <slot></slot>
       </section>
       <menu>
-        <slot name="actions">
-          <base-button @click="$emit('close')">Close</base-button>
-        </slot>
+        <base-button @click="$emit('doAction')">{{ actionName }}</base-button>
       </menu>
     </dialog>
   </teleport>
@@ -22,12 +20,16 @@
 <script>
 export default {
   props: {
+    actionName: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: false,
     },
   },
-  emits: ['close'],
+  emits: ['close', 'doAction'],
 };
 </script>
 

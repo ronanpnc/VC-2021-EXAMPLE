@@ -1,5 +1,10 @@
 <template>
-  <base-dialog title="Create new task" @close="hideDialog">
+  <base-dialog
+    actionName="Create Task"
+    title="Create new task"
+    @close="hideDialog"
+    @doAction="addTask"
+  >
     <template #default>
       <div class="form-control">
         <label for="name">Your task to do</label>
@@ -39,10 +44,6 @@
       <p class="error" v-if="invalidInput">
         One or more input fields are invalid. Please check your provided data.
       </p>
-    </template>
-
-    <template #actions>
-      <base-button @click="addTask">Create</base-button>
     </template>
   </base-dialog>
 </template>
